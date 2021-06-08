@@ -1,0 +1,195 @@
+@import 'variables';
+@import 'mixins';
+* {
+    @include box-sizing(border-box);
+}
+
+*,
+*:before,
+*:after {
+    @include box-sizing(inherit);
+}
+
+body {
+    background-color: $negro;
+    font-family: $fuenteprincipal;
+    color: $gris2;
+    @include tablet() {
+        background-color: unset;
+        background-image: url(../img/bg.jpg);
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: auto;
+    }
+}
+
+.contenedor {
+    width: 90%;
+    margin: 0 auto;
+}
+
+a {
+    color: $gris2;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+        color: $blanco;
+    }
+}
+
+.logotipo {
+    margin-top: 0.5rem;
+    max-width: 160px;
+    @include tablet() {
+        transform: scale(1.05);
+        margin-top: 1rem;
+        margin-left: 2%;
+    }
+}
+
+.formulario-login {
+    @include tablet() {
+        background-color: rgba(0, 0, 0, 0.822);
+        max-width: 350px;
+        padding: 2rem 4rem;
+        margin: 3rem auto 4rem auto;
+    }
+}
+
+form {
+    legend {
+        color: $blanco;
+        font-size: 2rem;
+        margin: 2rem 0;
+        font-weight: bold;
+    }
+    .campo {
+        display: flex;
+        position: relative;
+        margin-bottom: 0.8rem;
+        span {
+            position: absolute;
+            right: 3%;
+            top: 35%;
+            text-transform: uppercase;
+            font-size: .7rem;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        input {
+            flex: 1;
+            padding: 1rem 1rem 0.7rem 1rem;
+            border: none;
+            background-color: $gris1;
+            border-radius: 5px;
+            color: $blanco;
+            &:focus {
+                background-color: $gris3;
+                outline: none;
+                +.label {
+                    top: 0;
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+    .label {
+        position: absolute;
+        bottom: 30%;
+        left: 3%;
+        transition: all 0.2s ease;
+        &.valido {
+            font-size: 0.6rem;
+            top: 0;
+        }
+    }
+}
+
+.submit {
+    .boton {
+        @include boton();
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.acciones {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    margin: 0.6rem 0 0.6rem 0;
+    label,
+    a {
+        color: $gris2;
+        font-size: 0.8rem;
+    }
+}
+
+.contenido-inferior {
+    padding-bottom: 2rem;
+    @include tablet() {
+        padding-bottom: 0;
+    }
+    a {
+        font-size: 0.8rem;
+    }
+    .nuevo-usuario {
+        display: flex;
+        font-size: 1rem;
+        margin-top: 1rem;
+        a {
+            color: $blanco;
+            margin-left: .5rem;
+            font-size: 1rem;
+        }
+    }
+}
+
+.footer {
+    border-top: 1px solid $gris1;
+    padding: 2rem 0 4rem 0;
+    @include tablet() {
+        border: none;
+        background-color: rgba(0, 0, 0, 0.822);
+        padding: 1rem 0 3rem 0;
+    }
+    @include tablet() {
+        .contenedor {
+            max-width: 70%;
+        }
+    }
+    .menu-footer {
+        display: flex;
+        justify-content: space-between;
+        a {
+            font-size: 0.8rem;
+            margin-right: 2rem;
+            padding: 1rem 0;
+        }
+    }
+    select {
+        appearance: none;
+        padding: 1rem 2rem;
+        background-color: transparent;
+        color: $gris3;
+        border: 1px solid $gris3;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        margin-top: 2rem;
+    }
+}
+
+.alerta {
+    color: $secundario;
+    margin-bottom: 0.3rem;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+input .no-valido {
+    border-bottom: 2px solid $secundario !important;
+}

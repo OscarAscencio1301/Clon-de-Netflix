@@ -1,0 +1,35 @@
+@mixin telefono {
+    @media (min-width: #{$telefono}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin pc {
+    @media (min-width: #{$pc}) {
+        @content;
+    }
+}
+
+@mixin box-sizing($box-m) {
+    box-sizing: $box-m;
+}
+
+@mixin boton() {
+    background-color: $primario;
+    display: block;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
